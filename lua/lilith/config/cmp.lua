@@ -52,13 +52,13 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-S-k>"] = cmp.mapping.select_prev_item(),
-	["<C-S-j>"] = cmp.mapping.select_next_item(),
-    ["<C-S-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-S-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-S-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-S-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-S-e>"] = cmp.mapping {
+    ["<A-k>"] = cmp.mapping.select_prev_item(),
+	["<A-j>"] = cmp.mapping.select_next_item(),
+    ["<A-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<A-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    ["<A-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<A-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<A-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
