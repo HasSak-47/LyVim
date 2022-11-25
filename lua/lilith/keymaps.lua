@@ -10,8 +10,14 @@ vim.g.maplocalleader = " "
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>er", ":NvimTreeRefresh<CR>", opts)
 
+-- [[ resize 'window' size ]]
+keymap("n", "<A-k>", ":resize -2<CR>", opts)
+keymap("n", "<A-j>", ":resize +2<CR>", opts)
+keymap("n", "<A-h>", ":vertical resize -2<CR>", opts)
+keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
 
--- [[normal mode]]
+
+-- [[ normal mode ]]
 -- [[ navigation ]]
 	-- [[window navigation]]
 	-- it's like the navigation of i3

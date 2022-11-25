@@ -4,10 +4,11 @@ local options = {
 	number = true,
 	relativenumber = true,
 
-	clipboard = "unnamedplus",  -- system clipboard
 
 	encoding = "utf8",
 	fileencoding = "utf8",
+
+	clipboard = "unnamedplus",  -- system clipboard
 
 	expandtab = false, -- makes tabs be the \t character instead of spaces
 	shiftwidth = 4,
@@ -31,3 +32,4 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
