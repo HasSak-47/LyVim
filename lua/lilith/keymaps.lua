@@ -13,8 +13,8 @@ keymap("n", "<leader>er", ":NvimTreeRefresh<CR>", opts)
 -- [[ resize 'window' size ]]
 keymap("n", "<A-k>", ":resize -2<CR>", opts)
 keymap("n", "<A-j>", ":resize +2<CR>", opts)
-keymap("n", "<A-h>", ":vertical resize -2<CR>", opts)
-keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-h>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-l>", ":vertical resize -2<CR>", opts)
 
 
 -- [[ normal mode ]]

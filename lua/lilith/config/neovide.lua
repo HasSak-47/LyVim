@@ -1,5 +1,5 @@
 -- [[neovide configuration]] 
-vim.g.neovide_transparency = 0.8
+vim.g.neovide_transparency = 1.0
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_floating_blur_amount_x = 0.1
 vim.g.neovide_floating_blur_amount_y = 0.1
@@ -23,7 +23,7 @@ local change_gui_trans = function(delta)
 	if(vim.g.neovide_tranparency == nil) then
 		vim.g.neovide_tranparency = 1.0
 	end
-	if(vim.g.neovide_tranparency < 1 or vim.g.neovide_tranparency > 0) then
+	if(vim.g.neovide_tranparency < 1.0 or vim.g.neovide_tranparency > 0.0) then
 		print(vim.g.neovide_transparency)
 		vim.g.neovide_transparency = vim.g.neovide_transparency + delta 
 	end
