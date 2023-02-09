@@ -6,6 +6,10 @@ if not config_status_ok then return false end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.api.nvim_create_autocmd({"VimEnter"}, {callback = function()
+	require("nvim-tree.api").tree.open()
+end})
+
 nvim_tree.setup {
 	-- disable_netrw = true,
 	-- hijack_netrw = true,
