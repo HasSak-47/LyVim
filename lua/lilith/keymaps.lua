@@ -13,7 +13,8 @@ local toggle = nlex_toggle
 
 if enabled_plugins ~= nil then
 for k, v in pairs(enabled_plugins) do
-	if v == 'nvim-tree' then
+	-- this is the name of the nvim-tree config file
+	if v == 'completion' then
 		toggle = ntre_toggle
 	end
 end

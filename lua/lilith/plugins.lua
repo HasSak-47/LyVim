@@ -54,38 +54,38 @@ return packer.startup(
 
 		-- completion stuff
 		use {"hrsh7th/nvim-cmp"}				-- the completion plugin and its addons
-		use {"hrsh7th/cmp-buffer"}
-		use {"hrsh7th/cmp-path"}
-		use {"hrsh7th/cmp-cmdline"}
-		use {"hrsh7th/cmp-nvim-lsp"}
-		use {"hrsh7th/cmp-nvim-lua"}
-		use {"saadparwaiz1/cmp_luasnip"}
+		-- use {"hrsh7th/cmp-buffer"}
+		-- use {"hrsh7th/cmp-path"}
+		-- use {"hrsh7th/cmp-cmdline"}
+		-- use {"hrsh7th/cmp-nvim-lsp"}
+		-- use {"hrsh7th/cmp-nvim-lua"}
+		-- use {"saadparwaiz1/cmp_luasnip"}
 
 		-- nice themes
 		use {"sainnhe/sonokai"}
 
 		-- treesitter nice syntax highlighting
-		use {
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-		}
-		use { "p00f/nvim-ts-rainbow" }
-		use { "nvim-treesitter/playground" }
+		-- use {
+		-- 	"nvim-treesitter/nvim-treesitter",
+		-- 	run = ":TSUpdate",
+		-- }
+		-- use { "p00f/nvim-ts-rainbow" }
+		-- use { "nvim-treesitter/playground" }
 
 		-- telescope
-		use {"nvim-telescope/telescope.nvim"}
+		-- use {"nvim-telescope/telescope.nvim"}
 
 		-- explorer
 		use {'kyazdani42/nvim-web-devicons'}
 		use {'kyazdani42/nvim-tree.lua'}
 
 		-- lsp stuff
-		use {"neovim/nvim-lspconfig"}
-		use {"williamboman/nvim-lsp-installer"}
+		-- use {"neovim/nvim-lspconfig"}
+		-- use {"williamboman/nvim-lsp-installer"}
 
 		-- bufferline stuff
-		use {"akinsho/bufferline.nvim"}
-		use {"moll/vim-bbye"}
+		-- use {"akinsho/bufferline.nvim"}
+		-- use {"moll/vim-bbye"}
 
 		-- idk why this is but meh
 		if PACKER_BOOTSTRAP then
