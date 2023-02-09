@@ -54,12 +54,12 @@ return packer.startup(
 
 		-- completion stuff
 		use {"hrsh7th/nvim-cmp"}				-- the completion plugin and its addons
-		-- use {"hrsh7th/cmp-buffer"}
-		-- use {"hrsh7th/cmp-path"}
-		-- use {"hrsh7th/cmp-cmdline"}
-		-- use {"hrsh7th/cmp-nvim-lsp"}
-		-- use {"hrsh7th/cmp-nvim-lua"}
-		-- use {"saadparwaiz1/cmp_luasnip"}
+		use {"hrsh7th/cmp-buffer"}
+		use {"hrsh7th/cmp-path"}
+		use {"hrsh7th/cmp-cmdline"}
+		use {"hrsh7th/cmp-nvim-lsp"}
+		use {"hrsh7th/cmp-nvim-lua"}
+		use {"saadparwaiz1/cmp_luasnip"}
 
 		-- nice themes
 		use {"sainnhe/sonokai"}

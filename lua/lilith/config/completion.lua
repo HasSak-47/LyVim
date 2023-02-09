@@ -1,4 +1,4 @@
-local cmp_ok, cmp = pcall(require, 'nvim-cmp')
+local cmp_ok, cmp = pcall(require, 'cmp')
 if not cmp_ok then
 	print('cmp is not okay')
 	return false
@@ -106,9 +106,9 @@ cmp.setup {
   sources = {
     -- { name = "nvim_lsp" },
     -- { name = "nvim_lua" },
-    -- { name = "luasnip" },
-    -- { name = "buffer" },
-    -- { name = "path" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
