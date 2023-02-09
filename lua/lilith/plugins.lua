@@ -48,7 +48,7 @@ return packer.startup(
 		-- libraries/necesary pluggings
 		use {"wbthomason/packer.nvim"}			-- packer itself
 		use {"nvim-lua/popup.nvim"}				-- An implementation of the Popup API from vim in Neovim
-		use {"nvim-lua/plenary.nvim"}			-- Useful lua functions used ny lots of plugins
+		use {"nvim-lua/plenary.nvim"}			-- Useful lua functions used by lots of plugins
 		use {"L3MON4D3/LuaSnip"}				-- snippet engine
 		use {"rafamadriz/friendly-snippets"}	-- bunch of snippet completions
 
@@ -61,7 +61,7 @@ return packer.startup(
 		use {"hrsh7th/cmp-nvim-lua"}
 		use {"saadparwaiz1/cmp_luasnip"}
 
-		-- nice theme
+		-- nice themes
 		use {"sainnhe/sonokai"}
 
 		-- treesitter nice syntax highlighting

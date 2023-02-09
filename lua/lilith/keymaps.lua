@@ -7,8 +7,20 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- [[ explorer ]]
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>er", ":NvimTreeRefresh<CR>", opts)
+local ntre_toggle = ":NvimTreeToggle<CR>"
+local nlex_toggle = ":Lex 30<CR>"
+local toggle = nlex_toggle
+
+if enabled_plugins ~= nil then
+for k, v in pairs(enabled_plugins) do
+	if v == 'nvim-tree' then
+		toggle = ntre_toggle
+	end
+end
+end
+
+keymap("n", "<leader>e", toggle, opts)
+--keymap("n", "<leader>er", ":NvimTreeRefresh<CR>", opts)
 
 -- [[ resize 'window' size ]]
 keymap("n", "<A-k>", ":resize -2<CR>", opts)
@@ -30,6 +42,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-h>", ":bprevious<cr>", opts)
 keymap("n", "<S-l>", ":bnext<cr>", opts)
 
-
 -- [[insert mode]]
 keymap("i", "jk", "<esc>", opts)
+keymap("n", "<leader>reaload", ":source $MYVIMRC<cr>", opts)

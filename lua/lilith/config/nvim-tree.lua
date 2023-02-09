@@ -1,16 +1,14 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-	return
+local tree_status_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not tree_status_ok then
+	return false
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+local config_status_ok, nvim_tree_config = pcall(require, 'nvim-tree.config')
 if not config_status_ok then
-	return
+	return false
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
-
-plugin_map.nvim_tree = true
 
 nvim_tree.setup {
 	disable_netrw = true,
@@ -75,3 +73,4 @@ nvim_tree.setup {
 	--	},
 	--},
 }
+return true
