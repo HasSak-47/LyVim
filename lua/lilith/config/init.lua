@@ -1,7 +1,7 @@
 enabled_plugins = {}
 local plugins = {
-	'nvim-tree',
-	'nvim-cmp'
+	'explorer',
+	'completion'
 }
 
 for k, v in pairs(plugins) do
