@@ -10,7 +10,9 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-plugin_map.nvim_tree = true
+vim.nvim_autocmd({"VimEnter"}, {callback = function()
+	require("nvim-tree.api").tree.open()
+end})
 
 nvim_tree.setup {
 	disable_netrw = true,
