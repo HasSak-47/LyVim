@@ -4,9 +4,9 @@ if not cmp_ok then
 	return false
 end
 
-local snip_ok, luasinp = pcall(require, 'luasnip')
+local snip_ok, luasnip = pcall(require, 'luasnip')
 if not snip_ok then
-	print('snip is not okay')
+	print('lua snip')
 	return false
 end
 
