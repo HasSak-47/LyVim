@@ -1,7 +1,9 @@
 enabled_plugins = {}
 local plugins = {
 	'explorer',
-	'completion'
+	'completion',
+	'mason',
+	'lsp'
 }
 
 for k, v in pairs(plugins) do

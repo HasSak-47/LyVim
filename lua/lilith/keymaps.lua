@@ -48,9 +48,9 @@ keymap("i", "jk", "<esc>", opts)
 keymap("n", "<leader>reaload", ":source $MYVIMRC<cr>", opts)
 
 if vim.fn.exists("g:neovide") then
-	keymap("n", "nz+", function()  resize_gui_font(   1) end, opts)
-	keymap("n", "nz-", function()  resize_gui_font(  -1) end, opts)
-	keymap("n", "nt+", function() change_gui_trans( 0.1) end, opts)
-	keymap("n", "nt-", function() change_gui_trans(-0.1) end, opts)
+	vim.keymap.set("n", "nz+", function()  resize_gui_font(   1) end, opts)
+	vim.keymap.set("n", "nz-", function()  resize_gui_font(  -1) end, opts)
+	vim.keymap.set("n", "nt+", function() change_gui_trans( 0.1) end, opts)
+	vim.keymap.set("n", "nt-", function() change_gui_trans(-0.1) end, opts)
 end
 

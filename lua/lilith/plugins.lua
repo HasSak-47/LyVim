@@ -80,8 +80,9 @@ return packer.startup(
 		use {'kyazdani42/nvim-tree.lua'}
 
 		-- lsp stuff
-		-- use {"neovim/nvim-lspconfig"}
-		-- use {"williamboman/nvim-lsp-installer"}
+		use {"neovim/nvim-lspconfig"}
+		use {"williamboman/mason-lspconfig.nvim"}
+		use {"williamboman/mason.nvim"}
 
 		-- bufferline stuff
 		-- use {"akinsho/bufferline.nvim"}
