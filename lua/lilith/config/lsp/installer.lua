@@ -1,7 +1,7 @@
-local status_ok, lsp_installer = pcall(require, 'mason-lspconfig')
+local status_ok, installer = pcall(require, 'mason-lspconfig')
 if not status_ok then return false end
 
-lsp_installer.setup{
+installer.setup{
 	ensure_installed = {
 		'rust_analyzer',
 		'sumneko_lua',
@@ -13,6 +13,14 @@ lsp_installer.setup{
 		'pyright',
 		'pyright'
 	}
+}
+installer.setup_handlers{
+	function(name)
+		require("lspconfig")[name].setup{}
+	end,
+
+	-- ["rust_analyzer"] = function()
+	-- end
 }
 
 return true
