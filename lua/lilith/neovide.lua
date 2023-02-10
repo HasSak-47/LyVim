@@ -15,12 +15,12 @@ vim.opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_si
 
 local opts = { noremap = true, silent = true}
 
-local resize_gui_font = function(delta)
+resize_gui_font = function(delta)
 	vim.g.gui_font_size = delta + vim.g.gui_font_size
 	vim.opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_size)
 end
 
-local change_gui_trans = function(delta)
+change_gui_trans = function(delta)
 	if(vim.g.neovide_tranparency == nil) then
 		vim.g.neovide_tranparency = 1.0
 	end
@@ -29,10 +29,3 @@ local change_gui_trans = function(delta)
 		vim.g.neovide_transparency = vim.g.neovide_transparency + delta 
 	end
 end
-
-local modes = {'n'}
-
-vim.keymap.set(modes, "nz+", function()  resize_gui_font(   1) end, opts)
-vim.keymap.set(modes, "nz-", function()  resize_gui_font(  -1) end, opts)
-vim.keymap.set(modes, "nt+", function() change_gui_trans( 0.1) end, opts)
-vim.keymap.set(modes, "nt-", function() change_gui_trans(-0.1) end, opts)
