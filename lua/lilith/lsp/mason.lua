@@ -43,46 +43,24 @@ local settings = {
 	max_concurrent_installers = 4,
 }
 
--- require("mason").setup(settings)
--- require("mason-lspconfig").setup({
--- 	ensure_installed = servers,
--- 	automatic_installation = true,
--- })
+require("mason").setup(settings)
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_installation = true,
+})
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
 	return
 end
 
-print('in mason')
-capabilities = require("lilith.lsp.handlers").capabilities
-on_attach = require("lilith.lsp.handlers").on_attach
-lspconfig.rust_analyzer.setup {
-	capabilities=capabilities,
-	on_attach=on_attach,
-	settings = {
-		["rust-analyzer"] = {
-			check = {
-				allTargets = false,
-			},
-		},
-		check = { allTargets = false }
-	},
-}
+for _, server in pairs(servers) do
+	local opts = {
+		on_attach    = function(client, bfnr) print(client) end, --require("lilith.lsp.handlers").on_attach,
+		capabilities = require("lilith.lsp.handlers").capabilities,
+	}
 
--- local opts = {}
--- for _, server in pairs(servers) do
--- 	opts = {
--- 		on_attach = require("lilith.lsp.handlers").on_attach,
--- 		capabilities = require("lilith.lsp.handlers").capabilities,
--- 	}
--- 
--- 	server = vim.split(server, "@")[1]
--- 
--- 	local require_ok, conf_opts = pcall(require, "lilith.lsp.settings." .. server)
--- 	if require_ok then
--- 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
--- 	end
--- 
--- 	lspconfig[server].setup(opts)
--- end
+	server = vim.split(server, "@")[1]
+
+	lspconfig[server].setup(opts)
+end

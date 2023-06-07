@@ -1,4 +1,4 @@
-vim.lsp.set_log_level('debug')
+-- vim.lsp.set_log_level('debug')
 require "lilith.impatient"
 require "lilith.options"
 require "lilith.keymaps"
