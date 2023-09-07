@@ -1,6 +1,7 @@
 local M = {
 	'VonHeikemen/lsp-zero.nvim',
 	branch = 'v1.x',
+    priority = 100,
 	dependencies = {
 		--LSPSupport
 		{'neovim/nvim-lspconfig'},--Required
@@ -23,12 +24,9 @@ local M = {
 	config = function()
 		print('setting lsp...')
 		local lsp = require("lsp-zero")
+        vim.lsp.set_log_level('debug')
 		lsp.preset("recommended")
 
-		lsp.ensure_installed({
-			'tsserver',
-			'rust_analyzer',
-		})
 		local cmp = require('cmp')
 		local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
