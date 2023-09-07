@@ -6,12 +6,12 @@ local plugins = {
 	'lsp',
 	'harpoon',
     'nvim_tree',
-    'which_key'
+    'which_key',
 }
 
 local M = {}
 for _, plugin_name in ipairs(plugins) do
-	local path = string.format('ll.plugins.%s', plugin_name)
+	local path = string.format('ly.plugins.%s', plugin_name)
 	table.insert(M, require(path))
 end
 
