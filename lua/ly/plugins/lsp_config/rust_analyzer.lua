@@ -1,10 +1,7 @@
 local M = {
     ['rust-analyzer'] = {
-        checkOnSave = {
-            allTargets = true,
-        },
-    },
-
+        check = {allTargets = false},
+    }
 }
 
 return M

@@ -7,7 +7,7 @@ local plugins = {
 	'harpoon',
     'nvim_tree',
     'which_key',
-    -- 'indent'
+    'indent'
 }
 
 local M = {}
