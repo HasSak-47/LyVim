@@ -31,6 +31,7 @@ local M = {
 		local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.rust_analyzer.setup({settings = require('ly.plugins.lsp_config.rust_analyzer')})
+        lspconfig.ltex.setup({settings = {ltex = {language = LANG}}})
 
 		vim.diagnostic.config({virtual_text = true})
 		lsp.setup()
