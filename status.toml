@@ -1,0 +1,95 @@
+[project]
+name="ly-vim"
+version="0.0.0"
+edition="0.0.0"
+
+[[todo]]
+name="upgrade keymap and which-key"
+priority=0.2
+difficulty=0.8
+
+[[todo.sub_feature]]
+name="decouple plugin config and keybind"
+priority=0.5
+difficulty=0.1
+
+[[todo.sub_feature]]
+name="decouple lsp config and keybind"
+priority=0.5
+difficulty=0.1
+
+[[todo]]
+name="basic math config"
+priority=0.1
+difficulty=0.8
+
+[[todo]]
+name="upgrade harpoon config"
+priority=0.1
+difficulty=0.3
+
+[[todo]]
+name="upgrade lsp config"
+priority=0.9
+difficulty=0.9
+
+[[todo.sub_feature]]
+name="note taking config"
+priority=0.1
+difficulty=0.3
+
+[[todo.sub_feature]]
+name="upgrade rust lsp config"
+priority=0.1
+difficulty=0.4
+
+[[todo]]
+name="setup symbol renaming"
+priority=0.9
+difficulty=0.9
+
+[[done]]
+name="basic lsp config"
+priority=0.9
+difficulty=0.8
+
+[[done]]
+name="basic nvim-tree config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic telescope config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic treesitter config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic undotree config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic which-key config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic colorscheme config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic harpoon config"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="basic keybind config"
+priority=0.1
+difficulty=0.1
+

@@ -6,6 +6,7 @@ vim.keymap.set("n", "<C-j>", '<C-w>j', opts)
 vim.keymap.set("n", "<C-k>", '<C-w>k', opts)
 vim.keymap.set("n", "<C-l>", '<C-w>l', opts)
 vim.keymap.set("n", "<C-h>", '<C-w>h', opts)
+vim.keymap.set("i", "jk", '<esc>', opts)
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -17,14 +18,16 @@ end
 , opts)
 
 -- harpoon
-local h_ui   = require('harpoon.ui')
-local h_mark = require('harpoon.mark')
-vim.keymap.set("n", "<leader>a", h_mark.add_file)
-vim.keymap.set("n", "<C-e>", h_ui.toggle_quick_menu)
+local ok_ui, h_ui   = pcall(require,'harpoon.ui')
+local ok_ma, h_mark = pcall(require,'harpoon.mark')
+if ok_ui and ok_ma then
+	vim.keymap.set("n", "<leader>a", h_mark.add_file)
+	vim.keymap.set("n", "<C-e>", h_ui.toggle_quick_menu)
 
-for i=0,9 do
-	local keybind = string.format("<C-%d>", i)
-	vim.keymap.set("n", keybind, function() h_ui.nav_file(i) end)
+	for i=0,9 do
+		local keybind = string.format("<C-%d>", i)
+		vim.keymap.set("n", keybind, function() h_ui.nav_file(i) end)
+	end
 end
 
 -- nvim tree
