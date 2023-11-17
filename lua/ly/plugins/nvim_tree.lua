@@ -10,6 +10,8 @@ local M = {
         require('nvim-tree').setup({
             view = {width = 20},
             sort_by = "extension",
+			respect_buf_cwd = true,
+			sync_root_with_cwd = true,
         })
     end
 }
