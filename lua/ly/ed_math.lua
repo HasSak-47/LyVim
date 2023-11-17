@@ -1,4 +1,11 @@
-local opts = {remap = false}
-vim.keymap.set('n', '<leader>wOlatex', 'i$$\\begin{aligned}\n\\end{aligned}$$<esc>', opts)
-vim.keymap.set('n', '<leader>wlint', 'i\\int_a^b{}{d}<esc>', opts)
-vim.keymap.set('n', '<leader>wlfrac', 'i\\frac{}{}<esc>', opts)
+local wk = require('which-key')
+wk.register({
+	['<leader>'] = {
+		l = {
+			name = 'write latex',
+			o = {'i$$\\begin{aligned}\n\\end{aligned}$$<esc>', 'obsidian block'},
+			i = {'i\\int_a^b{}{d}<esc>', 'integral' },
+			f = { 'i\\frac{}{}<esc>', 'fraction'},
+		}
+	}
+})
