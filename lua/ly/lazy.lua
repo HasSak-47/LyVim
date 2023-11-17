@@ -8,9 +8,10 @@ local plugins = {
     'nvim_tree',
     'which_key',
 	'twilight',
-	'shade_c',
-	'project_man',
+	'shade',
+	'project',
     'indent',
+	'notify',
 }
 
 local M = {}
