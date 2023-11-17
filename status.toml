@@ -4,29 +4,14 @@ version="0.0.0"
 edition="0.0.0"
 
 [[todo]]
-name="upgrade keymap and which-key"
-priority=0.2
-difficulty=0.8
-
-[[todo.sub_feature]]
-name="decouple plugin config and keybind"
-priority=0.5
-difficulty=0.1
-
-[[todo.sub_feature]]
-name="decouple lsp config and keybind"
-priority=0.5
-difficulty=0.1
+name='add vim-visual-mutli'
+priority=0.1
+difficulty=0.4
 
 [[todo]]
 name="basic math config"
 priority=0.1
 difficulty=0.8
-
-[[todo]]
-name="upgrade harpoon config"
-priority=0.1
-difficulty=0.3
 
 [[todo]]
 name="upgrade lsp config"
@@ -47,6 +32,21 @@ difficulty=0.4
 name="setup symbol renaming"
 priority=0.9
 difficulty=0.9
+
+[[done]]
+name="upgrade keymap and which-key"
+priority=0.2
+difficulty=0.8
+
+[[done.sub_feature]]
+name="decouple plugin config and keybind"
+priority=0.5
+difficulty=0.1
+
+[[done]]
+name="upgrade harpoon config"
+priority=0.1
+difficulty=0.3
 
 [[done]]
 name="basic lsp config"
