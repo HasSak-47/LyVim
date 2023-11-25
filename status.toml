@@ -1,110 +1,99 @@
 [project]
-name="ly-nvim"
-version="2.5.0"
-edition="0.0.0"
+name = "ly-nvim"
+version = "2.5.0"
+edition = "0.1.0"
 
 [[todo]]
-name='add vim-visual-mutli'
-priority=0.1
-difficulty=0.4
+name = "add vim-visual-mutli"
+priority = 0.1
+difficulty = 0.4
 
 [[todo]]
-name="basic math config"
-priority=0.1
-difficulty=0.8
+name = "basic math config"
+priority = 0.1
+difficulty = 0.8
 
 [[todo]]
-name="upgrade lsp config"
-priority=0.9
-difficulty=0.9
-
-[[todo.sub_feature]]
-name="note taking config"
-priority=0.1
-difficulty=0.3
-
-[[todo.sub_feature]]
-name="upgrade rust lsp config"
-priority=0.1
-difficulty=0.4
+name = "upgrade lsp config"
+priority = 0.8
+difficulty = 0.8
 
 [[todo]]
-name="setup symbol renaming"
-priority=0.9
-difficulty=0.9
+name = "setup symbol renaming"
+priority = 0.8
+difficulty = 0.8
 
 [[done]]
-name="project handler"
-priority=0.1
-difficulty=0.1
+name = "notify"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="add shade"
-priority=0.1
-difficulty=0.1
+name = "project handler"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="add twilight"
-priority=0.1
-difficulty=0.1
+name = "add shade"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="upgrade keymap and which-key"
-priority=0.2
-difficulty=0.8
-
-[[done.sub_feature]]
-name="decouple plugin config and keybind"
-priority=0.5
-difficulty=0.1
+name = "add twilight"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="upgrade harpoon config"
-priority=0.1
-difficulty=0.3
+name = "upgrade keymap and which-key"
+priority = 0.2
+difficulty = 0.8
 
 [[done]]
-name="basic lsp config"
-priority=0.9
-difficulty=0.8
+name = "upgrade harpoon config"
+priority = 0.1
+difficulty = 0.3
 
 [[done]]
-name="basic nvim-tree config"
-priority=0.1
-difficulty=0.1
+name = "basic lsp config"
+priority = 0.8
+difficulty = 0.8
 
 [[done]]
-name="basic telescope config"
-priority=0.1
-difficulty=0.1
+name = "basic nvim-tree config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic treesitter config"
-priority=0.1
-difficulty=0.1
+name = "basic telescope config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic undotree config"
-priority=0.1
-difficulty=0.1
+name = "basic treesitter config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic which-key config"
-priority=0.1
-difficulty=0.1
+name = "basic undotree config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic colorscheme config"
-priority=0.1
-difficulty=0.1
+name = "basic which-key config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic harpoon config"
-priority=0.1
-difficulty=0.1
+name = "basic colorscheme config"
+priority = 0.1
+difficulty = 0.1
 
 [[done]]
-name="basic keybind config"
-priority=0.1
-difficulty=0.1
+name = "basic harpoon config"
+priority = 0.1
+difficulty = 0.1
 
+[[done]]
+name = "basic keybind config"
+priority = 0.1
+difficulty = 0.1
