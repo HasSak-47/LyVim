@@ -1,17 +1,18 @@
 local plugins = {
+	'lsp',
 	'telescope',
 	'kanagawa',
 	'treesitter',
 	'undotree',
-	'lsp',
 	'harpoon',
     'nvim_tree',
     'which_key',
-	'twilight',
-	'shade',
+	-- 'twilight',
+	-- 'shade',
 	'project',
     'indent',
-	'notify',
+	'copilot',
+	-- 'notify',
 }
 
 local M = {}

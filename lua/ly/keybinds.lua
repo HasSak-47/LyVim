@@ -3,9 +3,13 @@ local wk = require('which-key')
 local builtin = require('telescope.builtin')
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
-local project_nvim = require('harpoon.ui')
+
+-- local shade = require('shade')
 
 vim.g.mapleader = " "
+
+local register = {
+}
 
 wk.register( {
 	-- window navigation
@@ -29,18 +33,26 @@ wk.register( {
 		},
 		-- harpoon
 		h = {
-		   name = 'harpoon',
-		   a = {mark.add_file, 'add file'},
-		   m = {ui.toggle_quick_menu, 'toggle quick menu'},
+			name = 'harpoon',
+			a = {mark.add_file, 'add file'},
+			m = {ui.toggle_quick_menu, 'toggle quick menu'},
 		},
-		a = {
-			name = 'aesthetic',
-			t = {':Twilight<CR>', 'toggle twilight'}
+		s = {
+			name = 'lsp/symbol',
+			r = { ':lua vim.lsp.buf.rename(\'\')', 'rename symbol' }
+
 		},
+		-- aesthetic
+		-- a = {
+		-- 	name = 'aesthetic',
+		-- 	t = {':Twilight<CR>', 'toggle twilight'},
+		-- 	s = {shade.toggle, 'toggle Shade'}
+		-- },
 		-- project manager
 		p = {
 			name = 'project',
-		}
+		},
+		-- symbol stuff
 	},
 	-- resize windows
 	['<C-A-k>'] = {":resize -2<CR>", 'resize h +2'},
