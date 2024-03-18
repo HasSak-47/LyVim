@@ -7,12 +7,13 @@ local plugins = {
 	'harpoon',
     'nvim_tree',
     'which_key',
-	-- 'twilight',
-	-- 'shade',
 	'project',
     'indent',
 	'copilot',
+	-- 'luasnip',
 	-- 'notify',
+	-- 'twilight',
+	-- 'shade',
 }
 
 local M = {}
