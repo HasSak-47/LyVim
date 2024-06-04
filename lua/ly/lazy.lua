@@ -9,7 +9,7 @@ local plugins = {
     'which_key',
 	'project',
     'indent',
-	'copilot',
+	-- 'copilot',
 	-- 'luasnip',
 	-- 'notify',
 	-- 'twilight',

@@ -20,4 +20,4 @@ require('lazy').setup(plugins)
 
 require('ly.keybinds')
 require('ly.opts')
-require('ly.ed_math')
+-- require('ly.ed_math')

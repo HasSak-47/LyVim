@@ -3,6 +3,7 @@ local wk = require('which-key')
 local builtin = require('telescope.builtin')
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
+local nvim_tree = require('nvim-tree.api')
 
 -- local shade = require('shade')
 
@@ -26,12 +27,10 @@ wk.register( {
 			name = 'telescope',
 			f = {builtin.find_files, 'find files'},
 			g = {builtin.git_files, 'find git files'},
-			p = {':Telescope projects<CR>', 'show projects'}
 		},
 		-- tree
 		e = {
-			':NvimTreeToggle<CR>',
-			'explorer',
+			nvim_tree.tree.toggle, 'explorer',
 		},
 		-- harpoon
 		h = {

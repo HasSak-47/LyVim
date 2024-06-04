@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 
 local ft = vim.bo.filetype
 
-if ft ~= 'gdscript' then
+if ft ~= 'gdscript' or ft ~='makefile' then
     vim.opt.expandtab = false
 else
     vim.opt.expandtab = true
@@ -21,4 +21,5 @@ vim.opt.relativenumber = true
 vim.opt.hlsearch  = false
 vim.opt.incsearch = false
 
-vim.optscrolloff = 8
+vim.opt.scrolloff = 8
+vim.opt.wrap = false
