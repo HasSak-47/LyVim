@@ -52,9 +52,25 @@ local M = {
 		})
 
 		local lspconfig = require('lspconfig')
+
+		-- gdscript
+		lsp.configure(
+			'gdscript',
+			require('ly.plugins.lsp_config.gdscript')
+		)
+		-- remove ltex from html files
+		lsp.configure(
+			'gdscript',
+			require('ly.plugins.lsp_config.gdscript')
+		)
+
+		-- lsp.configure('ltex', {
+		-- 	filetypes = { 'tex' , 'md'}
+		-- })
+
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.rust_analyzer.setup({settings = require('ly.plugins.lsp_config.rust_analyzer')})
-        lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
+        -- lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
         lspconfig.pyright.setup({})
 
         lspconfig.tsserver.setup(require('ly.plugins.lsp_config.tsserver'))
