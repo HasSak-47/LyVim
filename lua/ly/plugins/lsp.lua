@@ -32,17 +32,15 @@ local M = {
 			--  map('n', '<F3>', lsp 'buf.format({async = true})')
 			--  map('x', '<F3>', lsp 'buf.format({async = true})')
 			--  map('n', '<F4>', lsp 'buf.code_action()')
-			wk.register({
-				K = { buffer.hover, 'hover' },
-				g = {
-					name = 'goto',
-					d = { buffer.definition, 'symbol definition'},
-					D = { buffer.declaration, 'symbol declaration'},
-					i = { buffer.implementation, 'implementation'},
-					o = { buffer.type_definition, 'symbol type definition'},
-					r = { buffer.references, 'reference'},
-					s = { buffer.signature_help, 'signature help'},
-				}
+			wk.add({
+				{'K' , buffer.hover,           desc='hover' },
+				{'g' , group='goto'},
+				{'gd', buffer.definition,      desc='symbol definition'},
+				{'gD', buffer.declaration,     desc='symbol declaration'},
+				{'gi', buffer.implementation,  desc='implementation'},
+				{'go', buffer.type_definition, desc='symbol type definition'},
+				{'gr', buffer.references,      desc='reference'},
+				{'gs', buffer.signature_help,  desc='signature help'},
 			})
 		end)
 
