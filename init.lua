@@ -15,9 +15,13 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = require('ly.lazy')
-require('lazy').setup(plugins)
+vim.g.mapleader = " "
+-- remove the kinda annoying cmdline command
+vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q?', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q/', '<Nop>', { noremap = true, silent = true })
 
+require('ly.lazy')
 require('ly.keybinds')
 require('ly.opts')
 -- require('ly.ed_math')

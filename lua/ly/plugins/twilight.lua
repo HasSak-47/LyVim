@@ -6,8 +6,14 @@ local M = {
 		context = 15,
 	},
 
-	init = function()
-		require('twilight')
+	config = function()
+		require('twilight').setup({
+			dimming = {
+				alpha = 0.25,
+				term_bg = "#000000"
+			},
+			treesitter = true,
+		})
 		vim.cmd('Twilight')
 	end
 }

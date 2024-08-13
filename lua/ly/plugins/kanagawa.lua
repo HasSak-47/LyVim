@@ -6,6 +6,8 @@ local M = {
 			transparent = true,
 		})
 		vim.cmd("colorscheme  kanagawa")
+
+		local _, _ = pcall(require,'twilight')
 	end
 }
 
