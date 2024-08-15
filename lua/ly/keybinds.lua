@@ -5,6 +5,11 @@ wk.add {
 	{'<C-l>', '<C-W>l', desc = 'change to _ window' },
 	{'<C-h>', '<C-W>h', desc = 'change to _ window' },
 
+	{'<C-A-j>', ':resize -2<CR>', desc = 'resize window' },
+	{'<C-A-k>', ':resize +2<CR>', desc = 'resize window' },
+	{'<C-A-l>', ':vertical resize -2<CR>', desc = 'resize window' },
+	{'<C-A-h>', ':vertical resize +2<CR>', desc = 'resize window' },
+
 	{'<leader>a', group='aesthetic'},
 	{'<leader>at' ,':Twilight<CR>', desc = 'toggle twilight'},
 	{'<leader>ar' ,':set relativenumber!<CR>', desc = 'toggle relnum'},
@@ -36,6 +41,3 @@ if t_ok then
 		desc = 'explorer',
 	}
 end
-
-
--- wk.add( key_register )

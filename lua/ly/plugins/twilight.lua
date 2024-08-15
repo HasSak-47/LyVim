@@ -14,7 +14,6 @@ local M = {
 			},
 			treesitter = true,
 		})
-		vim.cmd('Twilight')
 	end
 }
 
