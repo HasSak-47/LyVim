@@ -5,7 +5,7 @@ local M = {
 
     config = function()
         require('telescope').setup{ defaults = {
-            file_ignore_patterns = {'build', 'target', '.png'}
+            file_ignore_patterns = {'build/', 'target/', '.png'}
         }}
 
     end

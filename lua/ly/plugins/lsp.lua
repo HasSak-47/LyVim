@@ -71,7 +71,7 @@ local M = {
         -- lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
         lspconfig.pyright.setup({})
 
-        lspconfig.tsserver.setup(require('ly.plugins.lsp_config.tsserver'))
+        lspconfig.ts_ls.setup(require('ly.plugins.lsp_config.tsserver'))
 		lspconfig.arduino_language_server.setup({cmd = {
 		   "arduino-language-server",
 		   "-cli-config", "/home/lilith/Arduino/config.yaml",

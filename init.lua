@@ -21,6 +21,7 @@ vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'q?', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'q/', '<Nop>', { noremap = true, silent = true })
 
+require('ly.autocmds')
+require('ly.opts')
 require('ly.lazy')
 require('ly.keybinds')
-require('ly.opts')

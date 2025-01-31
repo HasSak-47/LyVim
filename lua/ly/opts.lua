@@ -3,14 +3,7 @@ vim.opt.clipboard   = "unnamedplus"
 vim.opt.tabstop     = 4
 vim.opt.shiftwidth  = 4
 vim.opt.softtabstop = 4
-
-local ft = vim.bo.filetype
-
-if ft ~= 'gdscript' or ft ~='makefile' then
-    vim.opt.expandtab = true
-else
-    vim.opt.expandtab = false
-end
+vim.opt.expandtab   = true
 
 vim.opt.breakindent = true
 
