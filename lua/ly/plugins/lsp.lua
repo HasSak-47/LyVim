@@ -1,104 +1,85 @@
 local M = {
-	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v3.x',
-    priority = 100,
+	'neovim/nvim-lspconfig',
+    lazy = false,
 	dependencies = {
-		--LSPSupport
-		{'neovim/nvim-lspconfig'},--Required
+		--helpers
         {'williamboman/mason.nvim'},
         {'williamboman/mason-lspconfig.nvim'},
 
-		--Autocompletion
-		{'hrsh7th/nvim-cmp'},--Required
-		{'hrsh7th/cmp-nvim-lsp'},--Required
+		--Auto-completion
+		{'hrsh7th/nvim-cmp'},
+		{'hrsh7th/cmp-nvim-lsp'},
 
-		{'hrsh7th/cmp-buffer'},--Optional
-		{'hrsh7th/cmp-path'},--Optional
-		{'saadparwaiz1/cmp_luasnip'},--Optional
-		{'hrsh7th/cmp-nvim-lua'},--Optional
+		{'hrsh7th/cmp-buffer'},
+		{'hrsh7th/cmp-path'},
+		{'saadparwaiz1/cmp_luasnip'},
+		{'hrsh7th/cmp-nvim-lua'},
+
 		--Snippets
 		{ 'L3MON4D3/LuaSnip'},
 		{'rafamadriz/friendly-snippets'},
 	},
 
 	config = function()
-		local lsp = require("lsp-zero").preset({})
+        local lspconfig = require('lspconfig')
+        vim.api.nvim_create_autocmd('LspAttach', {
+            desc = 'LSP actions',
+            callback = function(event)
+			    local wk = require('which-key')
+			    local buffer = vim.lsp.buf
+			    --  default keymaps not included
+			    --  map('n', '<F2>', lsp 'buf.rename()')
+			    --  map('n', '<F3>', lsp 'buf.format({async = true})')
+			    --  map('x', '<F3>', lsp 'buf.format({async = true})')
+			    --  map('n', '<F4>', lsp 'buf.code_action()')
+			    wk.add({
+			    	{'K' , buffer.hover,           desc='hover' },
+			    	{'g' , group='goto'},
+			    	{'gd', buffer.definition,      desc='symbol definition'},
+			    	{'gD', buffer.declaration,     desc='symbol declaration'},
+			    	{'gi', buffer.implementation,  desc='implementation'},
+			    	{'go', buffer.type_definition, desc='symbol type definition'},
+			    	{'gr', buffer.references,      desc='reference'},
+			    	{'gs', buffer.signature_help,  desc='signature help'},
+			    })
+            end,
+        })
 
-		lsp.on_attach(function(client, bufnr)
-			local wk = require('which-key')
-			local buffer = vim.lsp.buf
-			--  default keymaps not included
-			--  map('n', '<F2>', lsp 'buf.rename()')
-			--  map('n', '<F3>', lsp 'buf.format({async = true})')
-			--  map('x', '<F3>', lsp 'buf.format({async = true})')
-			--  map('n', '<F4>', lsp 'buf.code_action()')
-			wk.add({
-				{'K' , buffer.hover,           desc='hover' },
-				{'g' , group='goto'},
-				{'gd', buffer.definition,      desc='symbol definition'},
-				{'gD', buffer.declaration,     desc='symbol declaration'},
-				{'gi', buffer.implementation,  desc='implementation'},
-				{'go', buffer.type_definition, desc='symbol type definition'},
-				{'gr', buffer.references,      desc='reference'},
-				{'gs', buffer.signature_help,  desc='signature help'},
-			})
-		end)
+        local lspconfig_defaults = lspconfig.util.default_config
+        lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+          'force',
+          lspconfig_defaults.capabilities,
+          require('cmp_nvim_lsp').default_capabilities()
+        )
 
-		require('mason').setup({})
-		require('mason-lspconfig').setup({
-			handlers = { lsp.default_setup, },
-		})
-
-		local lspconfig = require('lspconfig')
-
-		-- gdscript
-		lsp.configure(
-			'gdscript',
-			require('ly.plugins.lsp_config.gdscript')
-		)
-		-- remove ltex from html files
-		lsp.configure(
-			'gdscript',
-			require('ly.plugins.lsp_config.gdscript')
-		)
-
-		-- lsp.configure('ltex', {
-		-- 	filetypes = { 'tex' , 'md'}
-		-- })
-
-        lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-        lspconfig.rust_analyzer.setup({settings = require('ly.plugins.lsp_config.rust_analyzer')})
-        -- lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
-        lspconfig.pyright.setup({})
-
-        lspconfig.ts_ls.setup(require('ly.plugins.lsp_config.tsserver'))
-		lspconfig.arduino_language_server.setup({cmd = {
-		   "arduino-language-server",
-		   "-cli-config", "/home/lilith/Arduino/config.yaml",
-		   "-fqbn", "arduino:uvr:uno",
-		   "-clangd", "/usr/bin/clangd"
-		}})
+		require('mason').setup{}
+		require('mason-lspconfig').setup{
+            handlers = {
+                function(server_name)
+                    local ok, cfg = pcall(require,'ly.plugins.lsp_config.' .. server_name)
+                    if not ok then
+                        cfg = {}
+                    end
+                    lspconfig[server_name].setup(cfg)
+                end
+            }
+        }
 
         local cmp = require('cmp')
-		local cmp_action = require('lsp-zero').cmp_action()
-		local luasnip = require('luasnip')
-		require('luasnip.loaders.from_vscode').lazy_load()
 
 		cmp.setup{
 			snippet = {
 				expand = function(args)
-					luasnip.lsp_expand(args.body)
+                    vim.snippet.expand(args.body)
 				end,
 			},
             sources = cmp.config.sources({
                 {name = 'nvim_lsp'},
                 {name = 'buffer'},
                 {name = 'luasnip'},
-           }),
+            }),
+            mapping = cmp.mapping.preset.insert({}),
         }
-
-		lsp.setup()
 	end
 }
-
 return M
