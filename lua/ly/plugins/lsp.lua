@@ -66,11 +66,12 @@ local M = {
         }
 
         local cmp = require('cmp')
+        require('luasnip.loaders.from_vscode').lazy_load()
 
 		cmp.setup{
 			snippet = {
 				expand = function(args)
-                    vim.snippet.expand(args.body)
+                    require('luasnip').lsp_expand(args.body)
 				end,
 			},
             sources = cmp.config.sources({
