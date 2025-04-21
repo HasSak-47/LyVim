@@ -22,6 +22,14 @@ local M = {
 
 	config = function()
         local lspconfig = require('lspconfig')
+
+        vim.diagnostic.config({
+            virtual_text = { spacing = 2, },
+            signs = true,
+            underline = true,
+            update_in_insert = false,
+            severity_sort = true,
+        })
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',
             callback = function(event)
@@ -53,7 +61,7 @@ local M = {
         )
 
 		require('mason').setup{ }
-		require('mason-lspconfig').setup{
+		local mason_lsp_config = {
             ensure_installed = {
                 'tailwindcss',
                 'rust_analyzer',
@@ -61,15 +69,14 @@ local M = {
             },
             handlers = {
                 function(server_name)
-                    local ok, cfg = pcall(require,'ly.plugins.lsp_config.' .. server_name)
-                    if not ok then
-                        print('could not load ' .. server_name)
-                        cfg = {}
-                    end
-                    lspconfig[server_name].setup(cfg)
+                    lspconfig[server_name].setup{}
+                end,
+                tailwindcss = function ()
+                    lspconfig.tailwindcss.setup{ }
                 end
             }
         }
+        require('mason-lspconfig').setup(mason_lsp_config)
 
         local cmp = require('cmp')
         require('luasnip.loaders.from_vscode').lazy_load()
