@@ -42,3 +42,8 @@ if t_ok then
 		desc = 'explorer',
 	}
 end
+
+local ls_ok, lsp_signature = pcall(require, 'lsp_signature')
+if ls_ok then
+    wk.add{'<leader>s', function() lsp_signature.toggle_float_win() end,desc='get '}
+end

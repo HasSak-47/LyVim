@@ -18,6 +18,11 @@ local M = {
 		--Snippets
 		{ 'L3MON4D3/LuaSnip'},
 		{'rafamadriz/friendly-snippets'},
+        {
+            "ray-x/lsp_signature.nvim",
+            event = "InsertEnter",
+            opts = {} ,
+        }
 	},
 
 	config = function()
@@ -69,7 +74,12 @@ local M = {
             },
             handlers = {
                 function(server_name)
-                    lspconfig[server_name].setup{}
+                    -- local lsp_signature = require('lsp_signature')
+                    lspconfig[server_name].setup{
+                        -- on_attach = function(_, bufnr)
+                        --     lsp_signature.on_attach({}, bufnr)
+                        -- end
+                    }
                 end,
                 tailwindcss = function ()
                     lspconfig.tailwindcss.setup{ }
