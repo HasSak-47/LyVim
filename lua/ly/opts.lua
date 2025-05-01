@@ -15,3 +15,5 @@ vim.opt.incsearch = false
 
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
+
+vim.g.autoformat = true
