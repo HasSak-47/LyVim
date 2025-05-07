@@ -6,7 +6,7 @@ local M = {
 
 		local wk = require("which-key")
 
-		wk.setup{}
+		wk.setup({})
 
 		wk.add({
 			{ "<C-j>", "<C-W>j", desc = "change to bottom window" },
@@ -24,12 +24,24 @@ local M = {
 			{ "<leader>ar", ":set relativenumber!<CR>", desc = "toggle relnum" },
 		})
 
-		local hm_ok, harpoon  = pcall(require, "harpoon")
+		local hm_ok, harpoon = pcall(require, "harpoon")
 		if hm_ok then
 			wk.add({
 				{ "<leader>h", group = "harpoon" },
-				{ "<leader>ha", function() harpoon:list():add() end, desc = "add file" },
-				{ "<leader>hu", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "toggle quick menu" },
+				{
+					"<leader>ha",
+					function()
+						harpoon:list():add()
+					end,
+					desc = "add file",
+				},
+				{
+					"<leader>hu",
+					function()
+						harpoon.ui:toggle_quick_menu(harpoon:list())
+					end,
+					desc = "toggle quick menu",
+				},
 			})
 		end
 
@@ -55,6 +67,14 @@ local M = {
 					lsp_signature.toggle_float_win()
 				end,
 				desc = "get ",
+			})
+		end
+
+		local trouble_ok, trouble = pcall(require, "trouble")
+		if trouble_ok then
+			wk.add({
+				{ "<leader>x", group = "troule" },
+				{ "<leader>xt", function() trouble.toggle('diagnostics') end, desc = "open trouble" },
 			})
 		end
 	end,
