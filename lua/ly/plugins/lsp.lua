@@ -40,11 +40,6 @@ local M = {
 			callback = function(event)
 				local wk = require("which-key")
 				local buffer = vim.lsp.buf
-				--  default keymaps not included
-				--  map('n', '<F2>', lsp 'buf.rename()')
-				--  map('n', '<F3>', lsp 'buf.format({async = true})')
-				--  map('x', '<F3>', lsp 'buf.format({async = true})')
-				--  map('n', '<F4>', lsp 'buf.code_action()')
 				wk.add({
 					{ "K", buffer.hover, desc = "hover" },
 					{ "g", group = "goto" },
