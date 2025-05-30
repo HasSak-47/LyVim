@@ -1,4 +1,6 @@
 require('lazy').setup({
 	spec = 'ly.plugins',
-	change_detection = {notify = true}
+	change_detection = {
+		notify = true
+	}
 })
