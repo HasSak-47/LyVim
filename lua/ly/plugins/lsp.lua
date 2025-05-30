@@ -52,12 +52,18 @@ local M = {
           require('cmp_nvim_lsp').default_capabilities()
         )
 
-		require('mason').setup{}
+		require('mason').setup{ }
 		require('mason-lspconfig').setup{
+            ensure_installed = {
+                'tailwindcss',
+                'rust_analyzer',
+                'ts_ls',
+            },
             handlers = {
                 function(server_name)
                     local ok, cfg = pcall(require,'ly.plugins.lsp_config.' .. server_name)
                     if not ok then
+                        print('could not load ' .. server_name)
                         cfg = {}
                     end
                     lspconfig[server_name].setup(cfg)
