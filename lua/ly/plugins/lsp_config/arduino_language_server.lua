@@ -4,11 +4,12 @@ local err, arduino = pcall(require, 'arduino')
 if err then
 	return M
 end
-arduino.setup({
-	clangd = "/bin/clangd",
-	arduino = "/bin/arduino-cli",
 
-	extra_ops = { ... }
-})
+arduino.setup{
+	cmd = {
+		"-cli-config", "/home/lilith/.arduino15/arduino-cli.yaml",
+
+	}
+}
 
 return M

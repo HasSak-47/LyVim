@@ -54,9 +54,10 @@ local M = {
 		local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.rust_analyzer.setup({settings = require('ly.plugins.lsp_config.rust_analyzer')})
-        -- lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
+        lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
         lspconfig.pyright.setup({})
-        lspconfig.tsserver.setup({})
+
+        lspconfig.tsserver.setup(require('ly.plugins.lsp_config.tsserver'))
 		lspconfig.arduino_language_server.setup({cmd = {
 		   "arduino-language-server",
 		   "-cli-config", "/home/lilith/Arduino/config.yaml",
