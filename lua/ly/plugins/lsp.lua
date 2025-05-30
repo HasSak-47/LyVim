@@ -74,10 +74,10 @@ local M = {
         }
 
         require("mason").setup({})
-        local lsps = { 'clangd', 'lua_ls', 'tailwindcss', 'ts_ls' }
+        local lsps = { 'clangd', 'lua_ls', 'tailwindcss', 'tsserver', 'pyright' }
         for _, value in ipairs(lsps) do
             local config = require("ly.plugins.lsp_config." .. value)
-            vim.tbl_deep_extend('force', config, default)
+            config = vim.tbl_deep_extend('force', config, default)
             vim.lsp.config[value] = config
         end
 
