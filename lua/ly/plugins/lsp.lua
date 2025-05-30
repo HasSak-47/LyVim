@@ -59,10 +59,10 @@ local M = {
 
 		local lspconfig = require('lspconfig')
 		lspconfig.rust_analyzer.setup({
-            settings = require('ll.plugins.lsp_config.rust_analyzer')
+            settings = require('ly.plugins.lsp_config.rust_analyzer')
         })
 		lspconfig.rust_analyzer.setup({
-            settings = require('ll.plugins.lsp_config.lua')
+            settings = require('ly.plugins.lsp_config.lua')
         })
 
 		lsp.setup()

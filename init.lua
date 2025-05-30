@@ -14,8 +14,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = require('ll.lazy')
+local plugins = require('ly.lazy')
 require('lazy').setup(plugins)
 
-require('ll.keybinds')
-require('ll.opts')
+require('ly.keybinds')
+require('ly.opts')
