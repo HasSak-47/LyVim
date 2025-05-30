@@ -14,8 +14,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
-vim.opt.wrap = false
+vim.opt.wrap = true
 
-vim.g.autoformat = true
-
--- vim.lsp.set_log_level("trace")
+vim.lsp.set_log_level("INFO")
+math.random(1)
