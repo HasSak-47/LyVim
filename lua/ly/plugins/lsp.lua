@@ -82,9 +82,12 @@ local M = {
 						-- end
 					})
 				end,
-                ts_ls = function()
-                    lspconfig.ts_ls.setup{require('ly.plugins.lsp_config.ts_ls')}
-                end,
+				lua_ls = function()
+					lspconfig.lua_ls.setup(require("ly.plugins.lsp_config.lua_ls"))
+				end,
+				ts_ls = function()
+					lspconfig.ts_ls.setup({ require("ly.plugins.lsp_config.ts_ls") })
+				end,
 				tailwindcss = function()
 					lspconfig.tailwindcss.setup({})
 				end,
