@@ -9,8 +9,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local M = {
-   init_options = {
-   },
+   init_options = { },
    filetypes = {
      "javascript",
      "typescript",
