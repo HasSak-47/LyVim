@@ -1,14 +1,13 @@
 local M = {
 	"rebelot/kanagawa.nvim",
-    priority = 100,
+	priority = 1000,
+    lazy = false,
 	config = function()
-		require('kanagawa').setup({
+		require("kanagawa").setup({
 			transparent = true,
 		})
 		vim.cmd("colorscheme  kanagawa")
-
-		local _, _ = pcall(require,'twilight')
-	end
+	end,
 }
 
 return M
