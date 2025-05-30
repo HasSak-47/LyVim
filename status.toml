@@ -1,99 +1,137 @@
 [project]
 name = "ly-nvim"
 version = "2.5.0"
-edition = "0.1.0"
+edition = "0.4.1"
 
 [[todo]]
 name = "add vim-visual-mutli"
-priority = 0.1
-difficulty = 0.4
+status = ""
+description = ""
+priority = 1
+difficulty = 4
 
 [[todo]]
 name = "basic math config"
-priority = 0.1
-difficulty = 0.8
+status = ""
+description = ""
+priority = 1
+difficulty = 8
 
 [[todo]]
 name = "upgrade lsp config"
-priority = 0.8
-difficulty = 0.8
+status = ""
+description = ""
+priority = 8
+difficulty = 8
 
 [[todo]]
 name = "setup symbol renaming"
-priority = 0.8
-difficulty = 0.8
+status = ""
+description = ""
+priority = 8
+difficulty = 8
 
 [[done]]
 name = "notify"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "project handler"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "add shade"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "add twilight"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "upgrade keymap and which-key"
-priority = 0.2
-difficulty = 0.8
+status = ""
+description = ""
+priority = 2
+difficulty = 8
 
 [[done]]
 name = "upgrade harpoon config"
-priority = 0.1
-difficulty = 0.3
+status = ""
+description = ""
+priority = 1
+difficulty = 3
 
 [[done]]
 name = "basic lsp config"
-priority = 0.8
-difficulty = 0.8
+status = ""
+description = ""
+priority = 8
+difficulty = 8
 
 [[done]]
 name = "basic nvim-tree config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic telescope config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic treesitter config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic undotree config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic which-key config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic colorscheme config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic harpoon config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
 
 [[done]]
 name = "basic keybind config"
-priority = 0.1
-difficulty = 0.1
+status = ""
+description = ""
+priority = 1
+difficulty = 1
