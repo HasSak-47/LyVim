@@ -1,7 +1,6 @@
 -- bootstrap lazy.nvim
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-print(lazypath)
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -15,10 +14,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = require('ll.plugins')
+local plugins = require('ll.lazy')
 require('lazy').setup(plugins)
 
 require('ll.keybinds')
 require('ll.opts')
-
-vim.cmd('colorscheme kanagawa')
