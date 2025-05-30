@@ -4,8 +4,8 @@ local M = {
 	dependencies = {'nvim-lua/plenary.nvim'},
 
     config = function()
-        local telescope = require('telescope').setup{ defaults = {
-            file_ignore_patterns = {'build', 'target'}
+        require('telescope').setup{ defaults = {
+            file_ignore_patterns = {'build', 'target', '.png'}
         }}
 
     end

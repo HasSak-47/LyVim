@@ -12,7 +12,8 @@ local lang = "es"
 
 local M = {
     ltex = {
-        language = lang
+        language = "auto"
     }
 }
+
 return M
