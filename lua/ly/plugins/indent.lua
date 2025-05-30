@@ -4,7 +4,12 @@ local M = {
     config = function()
         require("ibl").setup({
 			scope = {
-				enabled = false,
+				enabled = true,
+			},
+			indent = {
+                tab_char = '▎',
+				char = "-",
+				repeat_linebreak = true,
 			}
 		})
     end
