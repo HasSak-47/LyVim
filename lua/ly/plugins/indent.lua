@@ -8,7 +8,7 @@ local M = {
 			},
 			indent = {
                 tab_char = '▎',
-				char = "-",
+				char = "▎", -- I wanna add dots to the space indent but i don't know how to yet
 				repeat_linebreak = true,
 			}
 		})

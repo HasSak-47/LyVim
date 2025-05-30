@@ -1,64 +1,47 @@
-local opts = {remap = false}
 local wk = require('which-key')
-local builtin = require('telescope.builtin')
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
-local nvim_tree = require('nvim-tree.api')
-
--- local shade = require('shade')
-
-vim.g.mapleader = " "
-
--- remove the cmdline command
-vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'q?', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'q/', '<Nop>', { noremap = true, silent = true })
-
-wk.register( {
-	-- window navigation
+local key_register = {
 	['<C-j>'] = { '<C-W>j', 'change to _ window' },
 	['<C-k>'] = { '<C-W>k', 'change to _ window' },
 	['<C-l>'] = { '<C-W>l', 'change to _ window' },
 	['<C-h>'] = { '<C-W>h', 'change to _ window' },
 
 	['<leader>'] = {
-		-- telescope
-		t = {
-			name = 'telescope',
-			f = {builtin.find_files, 'find files'},
-			g = {builtin.git_files, 'find git files'},
-		},
-		-- tree
-		e = {
-			nvim_tree.tree.toggle, 'explorer',
-		},
-		-- harpoon
+		a = {
+			name = 'aesthetic',
+			t = {':Twilight<CR>', 'toggle twilight'},
+		}
+	},
+}
+
+local hm_ok, mark = pcall(require, 'harpoon.mark')
+local hu_ok, ui = pcall(require, 'harpoon.mark')
+if hm_ok and hu_ok then
+	table.insert(key_register['<leader>'], {
 		h = {
 			name = 'harpoon',
 			a = {mark.add_file, 'add file'},
 			m = {ui.toggle_quick_menu, 'toggle quick menu'},
-		},
-		s = {
-			name = 'lsp/symbol',
-			r = { ':lua vim.lsp.buf.rename(\'\')', 'rename symbol' }
+		}
+	})
+end
 
-		},
-		-- aesthetic
-		-- a = {
-		-- 	name = 'aesthetic',
-		-- 	t = {':Twilight<CR>', 'toggle twilight'},
-		-- 	s = {shade.toggle, 'toggle Shade'}
-		-- },
-		-- project manager
-		p = {
-			name = 'project',
-		},
-		-- symbol stuff
-	},
-	-- resize windows
-	['<C-A-k>'] = {":resize -2<CR>", 'resize h +2'},
-	['<C-A-j>'] = {":resize +2<CR>", 'resize h -2'},
-	['<C-A-h>'] = {":vertical resize +2<CR>", 'resize v +2'},
-	['<C-A-l>'] = {":vertical resize -2<CR>", 'resize v -2'},
-})
+local b_ok, builtin = pcall(require, 'telescope.builtin')
+if b_ok then
+	table.insert(key_register['<leader>'], {
+		t = {
+			name = 'telescope',
+			f = {builtin.find_files, 'find files'},
+			g = {builtin.git_files, 'find git files'},
+		}
+	})
+end
 
+local t_ok, nvim_tree = pcall(require, 'nvim-tree.api')
+if t_ok then
+	table.insert(key_register['<leader>'], {
+		e = { nvim_tree.tree.toggle, 'explorer', },
+	})
+end
+
+
+wk.register( key_register )
