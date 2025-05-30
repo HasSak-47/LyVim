@@ -1,5 +1,6 @@
 local M = {
 	'sunjon/shade.nvim',
+    enabled = false,
 	init = function()
 		require('shade').setup({
 			opacity_step = 1,

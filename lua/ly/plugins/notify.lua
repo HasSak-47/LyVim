@@ -2,7 +2,12 @@ local M = {
 	'rcarriga/nvim-notify',
 	lazy = false,
 	config = function()
-		vim.notify = require('notify')
+        local notify = require('notify')
+        notify.setup({
+            level = vim.log.levels.WARN
+        })
+		vim.notify = notify
+
 	end
 }
 
