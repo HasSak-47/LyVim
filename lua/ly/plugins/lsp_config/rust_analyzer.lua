@@ -1,6 +1,6 @@
 local M = {
     ['rust-analyzer'] = {
-        check = {allTargets = false},
+        check = { allTargets = false },
     }
 }
 

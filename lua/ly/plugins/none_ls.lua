@@ -5,14 +5,13 @@ local function config()
 
     null_ls.setup({
         sources = {
-            null_ls.builtins.formatting.prettierd.with({
+            null_ls.builtins.formatting.prettier.with({
                 extra_filetypes = { "html", "css", "javascript", "typescript", "svelte" },
             }),
             null_ls.builtins.formatting.black,
         },
 
         on_attach = function(client, bufnr)
-            -- format on save
             if client.supports_method("textDocument/formatting") then
                 vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
                 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -32,6 +31,7 @@ local M = {
     dependencies = {
         { "neovim/nvim-lspconfig" },
         { "williamboman/mason.nvim" },
+        { "nvim-lua/plenary.nvim" },
     },
     enable = false,
     config = config,

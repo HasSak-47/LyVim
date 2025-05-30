@@ -16,5 +16,4 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.wrap = true
 
-vim.lsp.set_log_level("INFO")
-math.random(1)
+vim.lsp.set_log_level("ERROR")
