@@ -1,6 +1,6 @@
 [project]
-name="ly-vim"
-version="0.0.0"
+name="ly-nvim"
+version="2.5.0"
 edition="0.0.0"
 
 [[todo]]
@@ -32,6 +32,21 @@ difficulty=0.4
 name="setup symbol renaming"
 priority=0.9
 difficulty=0.9
+
+[[done]]
+name="project handler"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="add shade"
+priority=0.1
+difficulty=0.1
+
+[[done]]
+name="add twilight"
+priority=0.1
+difficulty=0.1
 
 [[done]]
 name="upgrade keymap and which-key"

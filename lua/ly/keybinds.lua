@@ -3,6 +3,7 @@ local wk = require('which-key')
 local builtin = require('telescope.builtin')
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
+local project_nvim = require('harpoon.ui')
 
 vim.g.mapleader = " "
 
@@ -19,6 +20,7 @@ wk.register( {
 			name = 'telescope',
 			f = {builtin.find_files, 'find files'},
 			g = {builtin.git_files, 'find git files'},
+			p = {':Telescope projects<CR>', 'show projects'}
 		},
 		-- tree
 		e = {
@@ -31,6 +33,14 @@ wk.register( {
 		   a = {mark.add_file, 'add file'},
 		   m = {ui.toggle_quick_menu, 'toggle quick menu'},
 		},
+		a = {
+			name = 'aesthetic',
+			t = {':Twilight<CR>', 'toggle twilight'}
+		},
+		-- project manager
+		p = {
+			name = 'project',
+		}
 	},
 	-- resize windows
 	['<C-A-k>'] = {":resize -2<CR>", 'resize h +2'},
