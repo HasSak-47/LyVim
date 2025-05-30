@@ -1,3 +1,6 @@
-local M = { 'ThePrimeagen/harpoon' }
+local M = {
+	'ThePrimeagen/harpoon',
+}
+
 
 return M
