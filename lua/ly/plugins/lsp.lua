@@ -11,14 +11,14 @@ local M = {
 		--Autocompletion
 		{'hrsh7th/nvim-cmp'},--Required
 		{'hrsh7th/cmp-nvim-lsp'},--Required
-		{'L3MON4D3/LuaSnip'},--Required
 
 		{'hrsh7th/cmp-buffer'},--Optional
 		{'hrsh7th/cmp-path'},--Optional
-		-- {'saadparwaiz1/cmp_luasnip'},--Optional
-		-- {'hrsh7th/cmp-nvim-lua'},--Optional
+		{'saadparwaiz1/cmp_luasnip'},--Optional
+		{'hrsh7th/cmp-nvim-lua'},--Optional
 		--Snippets
-		-- {'rafamadriz/friendly-snippets'},--Optional
+		{ 'L3MON4D3/LuaSnip'},
+		{'rafamadriz/friendly-snippets'},
 	},
 
 	config = function()
@@ -54,9 +54,8 @@ local M = {
 		local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.rust_analyzer.setup({settings = require('ly.plugins.lsp_config.rust_analyzer')})
-        lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
+        -- lspconfig.ltex.setup({settings = require('ly.plugins.lsp_config.ltex')})
         lspconfig.pyright.setup({})
-        lspconfig.tsserver.setup({})
         lspconfig.tsserver.setup({})
 		lspconfig.arduino_language_server.setup({cmd = {
 		   "arduino-language-server",
@@ -66,12 +65,21 @@ local M = {
 		}})
 
         local cmp = require('cmp')
+		local cmp_action = require('lsp-zero').cmp_action()
+		local luasnip = require('luasnip')
+		require('luasnip.loaders.from_vscode').lazy_load()
 
-        cmp.setup{
-            sources = {
+		cmp.setup{
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
+            sources = cmp.config.sources({
                 {name = 'nvim_lsp'},
                 {name = 'buffer'},
-            }
+                {name = 'luasnip'},
+           }),
         }
 
 		lsp.setup()

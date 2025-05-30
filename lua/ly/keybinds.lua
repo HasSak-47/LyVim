@@ -8,8 +8,10 @@ local ui = require('harpoon.ui')
 
 vim.g.mapleader = " "
 
-local register = {
-}
+-- remove the cmdline command
+vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q?', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q/', '<Nop>', { noremap = true, silent = true })
 
 wk.register( {
 	-- window navigation
