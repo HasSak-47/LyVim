@@ -1,6 +1,8 @@
 local M = {
-	'folke/trouble.nvim',
+	"folke/trouble.nvim",
 	lazy = false,
+    keys = {},
+
 }
 
 return M
