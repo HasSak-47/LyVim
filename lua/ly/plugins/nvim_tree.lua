@@ -3,18 +3,19 @@ local M = {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
+    enabled = false,
     config = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
 
         require('nvim-tree').setup({
             view = {
-				width = 30,
-				side = "right",
-			},
+                width = 30,
+                side = "right",
+            },
             sort_by = "extension",
-			respect_buf_cwd = true,
-			sync_root_with_cwd = true,
+            respect_buf_cwd = true,
+            sync_root_with_cwd = true,
         })
     end
 }

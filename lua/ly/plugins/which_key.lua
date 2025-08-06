@@ -61,9 +61,9 @@ local M = {
             })
         end
 
-        local t_ok, nvim_tree = pcall(require, "nvim-tree.api")
-        if t_ok then
-            wk.add({ "<leader>e", nvim_tree.tree.toggle, desc = "explorer" })
+        local s_ok, snacks = pcall(require, "snacks")
+        if s_ok then
+            wk.add({ "<leader>e", snacks.explorer.open, desc = "explorer" })
         end
 
         local trouble_ok, trouble = pcall(require, "trouble")
