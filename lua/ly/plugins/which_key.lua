@@ -9,6 +9,9 @@ local M = {
         wk.setup({})
 
         wk.add({
+            { "j",          "gj",                       desc = "move j" },
+            { "k",          "gk",                       desc = "move k" },
+
             { "<C-j>",      "<C-W>j",                   desc = "change to bottom window" },
             { "<C-k>",      "<C-W>k",                   desc = "change to top window" },
             { "<C-l>",      "<C-W>l",                   desc = "change to left window" },
@@ -19,7 +22,7 @@ local M = {
             { "<C-A-l>",    ":vertical resize -2<CR>",  desc = "resize window" },
             { "<C-A-h>",    ":vertical resize +2<CR>",  desc = "resize window" },
 
-            { "<leader>u",  ":UndotreeToggle<CR>",          desc = "toggles undo tree" },
+            { "<leader>u",  ":UndotreeToggle<CR>",      desc = "toggles undo tree" },
 
             { "<leader>a",  group = "aesthetic" },
             { "<leader>at", ":Twilight<CR>",            desc = "toggle twilight" },
@@ -61,17 +64,6 @@ local M = {
         local t_ok, nvim_tree = pcall(require, "nvim-tree.api")
         if t_ok then
             wk.add({ "<leader>e", nvim_tree.tree.toggle, desc = "explorer" })
-        end
-
-        local ls_ok, lsp_signature = pcall(require, "lsp_signature")
-        if ls_ok then
-            wk.add({
-                "<leader>ls",
-                function()
-                    lsp_signature.toggle_float_win()
-                end,
-                desc = "toggle floating lsp sign",
-            })
         end
 
         local trouble_ok, trouble = pcall(require, "trouble")

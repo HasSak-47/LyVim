@@ -18,11 +18,11 @@ local M = {
         --Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
-        {
-            "ray-x/lsp_signature.nvim",
-            event = "InsertEnter",
-            opts = {},
-        },
+        -- {
+        --     "ray-x/lsp_signature.nvim",
+        --     event = "InsertEnter",
+        --     opts = {},
+        -- },
     },
 
     config = function()
@@ -54,7 +54,8 @@ local M = {
                 })
             end,
         })
-        vim.lsp.inlay_hint.enable(true)
+        -- TODO: keybind this
+        -- vim.lsp.inlay_hint.enable(true)
 
         local autogroup = vim.api.nvim_create_augroup("LspFormatting", {})
         local default = {
