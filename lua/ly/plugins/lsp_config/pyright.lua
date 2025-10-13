@@ -4,7 +4,8 @@ local M = {
             analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace" -- important for multi-folder setups
+                diagnosticMode = "workspace",
+                typeCheckingMode = "basic",
             }
         }
     }
