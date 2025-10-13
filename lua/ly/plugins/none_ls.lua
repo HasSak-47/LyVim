@@ -5,7 +5,7 @@ local function config()
 
     null_ls.setup({
         sources = {
-            null_ls.builtins.formatting.prettier.with({
+            null_ls.builtins.formatting.prettierd.with({
                 extra_filetypes = { "html", "css", "javascript", "typescript", "svelte" },
             }),
             null_ls.builtins.formatting.black,

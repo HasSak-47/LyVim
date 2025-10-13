@@ -76,11 +76,18 @@ local M = {
             wk.add({
                 { "<leader>x", group = "troule" },
                 {
-                    "<leader>xt",
+                    "<leader>xd",
                     function()
                         trouble.toggle("diagnostics")
                     end,
-                    desc = "open trouble",
+                    desc = "open diagnostics",
+                },
+                {
+                    "<leader>xt",
+                    function()
+                        trouble.toggle("todo")
+                    end,
+                    desc = "open todo",
                 },
             })
         end
