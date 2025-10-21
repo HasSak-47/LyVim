@@ -18,6 +18,7 @@ local M = {
         --Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
+        { "pest-parser/pest.vim" },
         -- {
         --     "ray-x/lsp_signature.nvim",
         --     event = "InsertEnter",
@@ -107,6 +108,8 @@ local M = {
             }),
             mapping = cmp.mapping.preset.insert({}),
         })
+
+        require('pest-vim').setup {}
     end,
 }
 return M
