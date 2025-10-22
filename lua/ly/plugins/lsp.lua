@@ -18,7 +18,7 @@ local M = {
         --Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
-        { "pest-parser/pest.vim" },
+        { "HasSak-47/pest.vim" },
         -- {
         --     "ray-x/lsp_signature.nvim",
         --     event = "InsertEnter",
