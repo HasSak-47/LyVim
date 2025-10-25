@@ -8,6 +8,17 @@ local M = {
         explorer = {
             enabled = false,
         },
+        git = {
+            enabled = true,
+            blame_line = {
+                width = 0.6,
+                height = 0.6,
+                border = true,
+                title = " Git Blame ",
+                title_pos = "center",
+                ft = "git",
+            },
+        },
         indent = { enabled = false },
         input = { enabled = true },
         picker = {
@@ -20,7 +31,9 @@ local M = {
 
         },
         quickfile = { enabled = true },
-        statuscolumn = { enabled = true },
+        statuscolumn = {
+            enabled = false,
+        },
         words = { enabled = true },
     },
 }
