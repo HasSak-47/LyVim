@@ -70,6 +70,25 @@ local M = {
         -- if s_ok then
         --     wk.add({ "<leader>e", snacks.explorer.open, desc = "explorer" })
         -- end
+        --
+        local hard_ok, hard = pcall(require, "trouble")
+        if hard_ok then
+            wk.add({
+                { "<leader>h", group = "hard" },
+                {
+                    "<leader>h",
+                    ":Hardtime toggle",
+                    desc = "open diagnostics",
+                },
+                {
+                    "<leader>xt",
+                    function()
+                        hard.toggle("todo")
+                    end,
+                    desc = "open todo",
+                },
+            })
+        end
 
         local trouble_ok, trouble = pcall(require, "trouble")
         if trouble_ok then
