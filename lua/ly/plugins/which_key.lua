@@ -110,6 +110,19 @@ local M = {
                 },
             })
         end
+        local snacks_ok, snacks = pcall(require, "snacks")
+        if snacks_ok then
+            wk.add({
+                { "<leader>o", group = "other" },
+                {
+                    "<leader>onh",
+                    function()
+                        snacks.notifier.show_history()
+                    end,
+                    desc = "show history",
+                },
+            })
+        end
     end,
 }
 

@@ -5,7 +5,7 @@ endif
 " ---------------------------------------
 " Keywords and operations
 " ---------------------------------------
-syntax keyword gdslKeyword model enum as null
+syntax keyword gdslKeyword type as null inner outer
 syntax match   gdslOperation /\<\(get\|post\|put\)\>/
 syntax match   gdslOperationMark /@[a-zA-Z_]\+/
 syntax match   gdslArrow /->/
