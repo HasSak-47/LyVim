@@ -83,6 +83,36 @@ local M = {
             vim.lsp.config[value] = config
         end
 
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        vim.lsp.config('gdscript', {
+            cmd = { 'nc', 'localhost', '6008' }, -- Godot LSP server port
+            filetypes = { 'gd', 'gdscript' },
+            root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
+            capabilities = capabilities,
+        })
+
+        -- Enable it
+        local function wait_for_port(host, port, timeout)
+            local t0 = os.time()
+            while os.time() - t0 < timeout do
+                local handle = io.popen(("nc -z %s %d"):format(host, port))
+                if handle == nil then
+                    return false
+                end
+                local result = handle:read("*a")
+                handle:close()
+                if result == "" then return true end
+                vim.wait(500)
+            end
+            return false
+        end
+
+        if wait_for_port("127.0.0.1", 6008, 5) then
+            vim.lsp.enable('gdscript')
+        else
+            vim.notify("Godot LSP not running on port 6008", vim.log.levels.WARN)
+        end
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "tailwindcss",
