@@ -136,7 +136,12 @@ local M = {
                 { name = "buffer" },
                 { name = "luasnip" },
             }),
-            mapping = cmp.mapping.preset.insert({}),
+            mapping = cmp.mapping.preset.insert({
+                ["<CR>"] = cmp.mapping.confirm({
+                    behavior = cmp.ConfirmBehavior.Insert,
+                    select = false,
+                })
+            })
         })
 
         require('pest-vim').setup {}

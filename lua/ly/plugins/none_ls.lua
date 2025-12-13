@@ -33,7 +33,6 @@ local M = {
         { "williamboman/mason.nvim" },
         { "nvim-lua/plenary.nvim" },
     },
-    enable = false,
     config = config,
 }
 
