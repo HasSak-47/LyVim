@@ -1,6 +1,6 @@
 local M = {
     "folke/snacks.nvim",
-    priority = 1000,
+    priority = 2000,
     lazy = false,
     opts = {
         bigfile = { enabled = true },
@@ -14,7 +14,7 @@ local M = {
                 width = 0.6,
                 height = 0.6,
                 border = true,
-                title = " Git Blame ",
+                title = "Git Blame",
                 title_pos = "center",
                 ft = "git",
             },
@@ -32,7 +32,18 @@ local M = {
         },
         quickfile = { enabled = true },
         statuscolumn = {
-            enabled = false,
+            enabled = true,
+            left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+            right = { "fold", "git" }, -- priority of signs on the right (high to low)
+            folds = {
+                open = false,          -- show open fold icons
+                git_hl = false,        -- use Git Signs hl for fold icons
+            },
+            git = {
+                -- patterns to match Git signs
+                patterns = { "GitSign", "MiniDiffSign" },
+            },
+            refresh = 50, -- refresh at most every 50ms
         },
         words = { enabled = true },
     },
