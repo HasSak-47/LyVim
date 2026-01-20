@@ -1,10 +1,6 @@
 " Vim syntax file
 " Language: Niebo
 
-if exists("b:current_syntax")
-  finish
-endif
-
 syn keyword nieboKeyword type mod fn trait let const mut pub module for in while if else loop match use header break continue return struct union variant template
 syn keyword nieboType bool int uint float string void
 syn keyword nieboQualifier global super crate
@@ -24,9 +20,8 @@ syn match nieboEscape "\\\\\|\\\"\|\\n\|\\r\|\\t\|\\0\|\\x[0-9A-Fa-f]{2}\|\\u{[0
 
 syn region nieboComment start="/\*" end="\*/" contains=nieboTodo
 syn match nieboComment "//.*$" contains=nieboTodo
-syn keyword nieboTodo TODO FIXME XXX NOTE contained
 
-syn match nieboOperator "\v(\+\+|--|==|!=|<=|>=|\|\||&&|->|=>|::|\.\.\.|\+|-|\*|/|%|=|<|>|!|\?|&|\|)"
+"syn match nieboOperator '\v(\+\+|--|==|!=|<=|>=|\|\||&&|->|=>|::|\.\.\.|\+|-|\*|/|%|=|<|>|!|\?|&|\|)'
 
 hi def link nieboKeyword Keyword
 hi def link nieboType Type
@@ -41,6 +36,6 @@ hi def link nieboString String
 hi def link nieboEscape SpecialChar
 hi def link nieboComment Comment
 hi def link nieboTodo Todo
-hi def link nieboOperator Operator
+"hi def link nieboOperator Operator
 
 let b:current_syntax = "niebo"

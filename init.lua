@@ -17,13 +17,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
+vim.cmd("syntax on")
 -- remove the kinda annoying cmdline command
 vim.api.nvim_set_keymap("n", "q:", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "q?", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "q/", "<Nop>", { noremap = true, silent = true })
 
 require("ly.autocmds")
-require("ly.ftdetect")
 require("ly.opts")
 require("ly.lazy")
 
