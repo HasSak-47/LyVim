@@ -3,7 +3,18 @@ local M = {
     enabled = true,
 
     config = function()
-        require('gitsigns').setup {}
+        local gitsigns = require('gitsigns')
+
+        gitsigns.setup {}
+
+        local group = vim.api.nvim_create_augroup("GitsignsRefresh", { clear = true })
+        vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "TermClose", "VimResume" }, {
+            group = group,
+            desc = "Refresh gitsigns after external git changes",
+            callback = function()
+                pcall(gitsigns.refresh)
+            end,
+        })
     end
 }
 
