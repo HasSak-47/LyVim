@@ -1,16 +1,38 @@
 local M = {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-		local configs = require('nvim-treesitter.configs')
-		configs.setup({
-			ensure_installed = {"javascript", "typescript", "c", "cpp", "lua", "rust", "python", "vim", "vimdoc", "query"},
-			sync_install = false, auto_install = true,
-			highlight = { enable = true, additional_vim_regex_highlighting = false, }
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+        local ts = require("nvim-treesitter")
+        local languages = {
+            "javascript",
+            "typescript",
+            "c",
+            "cpp",
+            "lua",
+            "rust",
+            "python",
+            "vim",
+            "vimdoc",
+            "query",
+            "markdown",
+            "markdown_inline",
+        }
 
-		})
-	end,
-	lazy = false,
+        ts.setup({
+            install_dir = vim.fn.stdpath("data") .. "/site",
+        })
+
+        ts.install(languages)
+
+        local group = vim.api.nvim_create_augroup("ly_treesitter", { clear = true })
+        vim.api.nvim_create_autocmd("FileType", {
+            group = group,
+            callback = function(args)
+                pcall(vim.treesitter.start, args.buf)
+            end,
+        })
+    end,
+    lazy = false,
 }
 
 return M

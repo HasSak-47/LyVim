@@ -4,7 +4,7 @@ local M = {
     lazy = false,
     opts = {
         bigfile = { enabled = true },
-        dashboard = { enabled = true },
+        dashboard = { enabled = false },
         explorer = {
             enabled = false,
         },
