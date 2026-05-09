@@ -61,9 +61,9 @@ local M = {
             })
         end
 
-        local t_ok, tree = pcall(require, "nvim-tree.api")
+        local t_ok, tree = pcall(require, "neo-tree")
         if t_ok then
-            wk.add({ "<leader>e", tree.tree.toggle, desc = "explorer" })
+            wk.add({ "<leader>e", ":Neotree toggle<CR>", desc = "explorer" })
         end
 
         -- local s_ok, snacks = pcall(require, "snacks")

@@ -5,6 +5,16 @@ local M = {
         --helpers
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
+        {
+            "folke/lazydev.nvim",
+            ft = "lua",
+            opts = {
+                library = {
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                    { path = "noice.nvim",         words = { "Noice" } },
+                },
+            },
+        },
 
         --Auto-completion
         { "hrsh7th/nvim-cmp" },
@@ -27,6 +37,9 @@ local M = {
     },
 
     config = function()
+        local wk = require("which-key")
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
         vim.diagnostic.config({
             virtual_text = {
                 current_line = false,
@@ -40,19 +53,24 @@ local M = {
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
             callback = function(event)
-                local wk = require("which-key")
-                local buffer = vim.lsp.buf
                 wk.add({
-                    { "K",          buffer.hover,           desc = "hover" },
-                    { "g",          group = "goto" },
-                    { "gd",         buffer.definition,      desc = "symbol definition" },
-                    { "gD",         buffer.declaration,     desc = "symbol declaration" },
-                    { "gi",         buffer.implementation,  desc = "implementation" },
-                    { "go",         buffer.type_definition, desc = "symbol type definition" },
-                    { "gr",         buffer.references,      desc = "reference" },
-                    { "gs",         buffer.signature_help,  desc = "signature help" },
-                    { "<leader>lf", vim.lsp.buf.format({}), desc = "auto format" },
-                })
+                    { "K",  vim.lsp.buf.hover,           desc = "hover" },
+                    { "g",  group = "goto" },
+                    { "gd", vim.lsp.buf.definition,      desc = "symbol definition" },
+                    { "gD", vim.lsp.buf.declaration,     desc = "symbol declaration" },
+                    { "gi", vim.lsp.buf.implementation,  desc = "implementation" },
+                    { "go", vim.lsp.buf.type_definition, desc = "symbol type definition" },
+                    { "gr", vim.lsp.buf.references,      desc = "reference" },
+                    { "gs", vim.lsp.buf.signature_help,  desc = "signature help" },
+                    {
+                        "<leader>lf",
+                        function()
+                            vim.lsp.buf.format({ bufnr = event.buf })
+                        end,
+                        desc = "format buffer",
+                    },
+                    { "<leader>lr", vim.lsp.buf.rename, desc = "rename symbol" },
+                }, { buffer = event.buf })
             end,
         })
         -- TODO: keybind this
@@ -74,44 +92,59 @@ local M = {
                 end
             end,
         }
+        default.capabilities = capabilities
 
         require("mason").setup({})
-        local lsps = { 'clangd', 'lua_ls', 'tailwindcss', 'tsserver', 'pyright', 'rust_analyzer' }
-        for _, value in ipairs(lsps) do
-            local config = require("ly.plugins.lsp_config." .. value)
+        local lsps = {
+            { name = 'clangd' },
+            { name = 'lua_ls' },
+            { name = 'tailwindcss' },
+            { name = 'ts_ls',        module = 'tsserver' },
+            { name = 'pyright' },
+            { name = 'rust_analyzer' },
+        }
+        for _, server in ipairs(lsps) do
+            local ok, config = pcall(require, "ly.plugins.lsp_config." .. (server.module or server.name))
+            config = ok and config or {}
             config = vim.tbl_deep_extend('force', config, default)
-            vim.lsp.config[value] = config
+            vim.lsp.config(server.name, config)
+        end
+        vim.lsp.enable(vim.tbl_map(function(server)
+            return server.name
+        end, lsps))
+
+        vim.lsp.config('gdscript', vim.tbl_deep_extend('force', default, {
+            cmd = { 'nc', 'localhost', '6008' },
+            filetypes = { 'gd', 'gdscript', 'gdscript3' },
+            root_markers = { 'project.godot', '.git' },
+        }))
+
+        local function godot_lsp_is_running()
+            local result = vim.system({ 'nc', '-z', '127.0.0.1', '6008' }, { text = true }):wait(1000)
+            return result.code == 0
         end
 
-        local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        vim.lsp.config('gdscript', {
-            cmd = { 'nc', 'localhost', '6008' }, -- Godot LSP server port
-            filetypes = { 'gd', 'gdscript' },
-            root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
-            capabilities = capabilities,
-        })
-
-        -- Enable it
-        local function wait_for_port(host, port, timeout)
-            local t0 = os.time()
-            while os.time() - t0 < timeout do
-                local handle = io.popen(("nc -z %s %d"):format(host, port))
-                if handle == nil then
-                    return false
+        local godot_lsp_warned = false
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "gd", "gdscript", "gdscript3" },
+            desc = "Enable Godot LSP only for Godot buffers",
+            callback = function()
+                if vim.lsp.is_enabled('gdscript') then
+                    return
                 end
-                local result = handle:read("*a")
-                handle:close()
-                if result == "" then return true end
-                vim.wait(500)
-            end
-            return false
-        end
 
-        if wait_for_port("127.0.0.1", 6008, 5) then
-            vim.lsp.enable('gdscript')
-        else
-            vim.notify("Godot LSP not running on port 6008", vim.log.levels.WARN)
-        end
+                if godot_lsp_is_running() then
+                    vim.lsp.enable('gdscript')
+                    godot_lsp_warned = false
+                    return
+                end
+
+                if not godot_lsp_warned then
+                    vim.notify("Godot LSP not running on port 6008", vim.log.levels.WARN)
+                    godot_lsp_warned = true
+                end
+            end,
+        })
 
         require("mason-lspconfig").setup({
             ensure_installed = {

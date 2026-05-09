@@ -1,6 +1,12 @@
 -- bootstrap lazy.nvim
 
 LANG = "es"
+
+-- Disable netrw before any plugin startup logic so directory opens go
+-- straight to neo-tree instead of briefly rendering netrw first.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -36,3 +42,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.formatoptions:append("t")
     end,
 })
+
+-- force neotree to load
+require('neo-tree')

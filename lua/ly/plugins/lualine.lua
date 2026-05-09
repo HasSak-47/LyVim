@@ -10,7 +10,8 @@ local M = {
         lualine.setup({
             options = {
                 disable_filetypes = {
-                    statusline = { "NvimTree" },
+                    statusline = { "NvimTree", "neo-tree" },
+                    winbar = { "NvimTree", "neo-tree" },
                 },
                 ignore_focus = { "NvimTree" },
                 theme = 'kanagawa'
@@ -24,6 +25,9 @@ local M = {
                 lualine_y = { "lsp_status" },
                 lualine_z = { "location" },
             },
+            extensions = {
+                "neo-tree"
+            }
         })
     end,
 }

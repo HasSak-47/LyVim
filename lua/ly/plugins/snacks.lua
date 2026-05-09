@@ -27,7 +27,7 @@ local M = {
         notifier = {
             enabled = true,
             timeout = 5000,
-            level = vim.log.levels.WARN,
+            level = vim.log.levels.INFO,
 
         },
         quickfile = { enabled = true },

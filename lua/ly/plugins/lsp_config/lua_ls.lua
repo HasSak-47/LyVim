@@ -1,6 +1,23 @@
 local M = {
+    root_markers = {
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".git",
+        "init.lua",
+    },
     settings = {
         Lua = {
+            completion = {
+                callSnippet = "Replace",
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            hover = {
+                previewFields = 300,
+                enumsLimit = 100,
+                viewStringMax = 4000,
+            },
             format = {
                 enable = true,
                 defaultConfig = {
@@ -17,9 +34,7 @@ local M = {
             },
             workspace = {
                 checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
-                },
+                library = vim.api.nvim_get_runtime_file("", true),
             },
         },
     },
