@@ -2,11 +2,20 @@ local autogroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local function config()
     local null_ls = require("null-ls")
+    local helpers = require("null-ls.helpers")
+    local utils = require("null-ls.utils")
+
+    local prettier_root = function(bufname)
+        return utils.root_pattern(".prettierrc.toml")(bufname) or utils.cosmiconfig("prettier")(bufname)
+    end
 
     null_ls.setup({
         sources = {
             null_ls.builtins.formatting.prettierd.with({
                 extra_filetypes = { "html", "css", "javascript", "typescript", "svelte" },
+                cwd = helpers.cache.by_bufnr(function(params)
+                    return prettier_root(params.bufname)
+                end),
             }),
             null_ls.builtins.formatting.black,
         },

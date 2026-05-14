@@ -99,7 +99,7 @@ local M = {
             { name = 'clangd' },
             { name = 'lua_ls' },
             { name = 'tailwindcss' },
-            { name = 'ts_ls',        module = 'tsserver' },
+            { name = 'ts_ls' },
             { name = 'pyright' },
             { name = 'rust_analyzer' },
         }
