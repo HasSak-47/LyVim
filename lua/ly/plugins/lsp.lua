@@ -47,7 +47,7 @@ local M = {
             },
             signs = true,
             underline = true,
-            update_in_insert = true,
+            update_in_insert = false,
             severity_sort = true,
         })
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -75,7 +75,7 @@ local M = {
         })
         -- TODO: keybind this
         -- vim.lsp.inlay_hint.enable(true)
-
+        -- vim.lsp.set_log_level('debug')
         local autogroup = vim.api.nvim_create_augroup("LspFormatting", {})
         local default = {
             on_attach = function(client, bufnr)

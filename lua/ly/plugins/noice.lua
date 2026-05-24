@@ -14,8 +14,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -25,8 +25,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -36,8 +36,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -47,8 +47,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -58,8 +58,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -69,8 +69,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -80,8 +80,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -90,8 +90,8 @@ return {
                     opts = {
                         win_options = {
                             winhighlight = {
-                                FloatBorder = "FloatBorder",
-                                FloatTitle = "FloatTitle",
+                                FloatBorder = "MyKaFloatBorder",
+                                FloatTitle = "MyKaFloatTitle",
                             },
                         },
                     },
@@ -102,19 +102,19 @@ return {
             cmdline_popup = {
                 win_options = {
                     winhighlight = {
-                        Normal = "NormalFloat",
-                        FloatBorder = "FloatBorder",
-                        FloatTitle = "FloatTitle",
+                        Normal = "MyKaNormalFloat",
+                        FloatBorder = "MyKaFloatBorder",
+                        FloatTitle = "MyKaFloatTitle",
                     },
                 },
             },
             popupmenu = {
                 win_options = {
                     winhighlight = {
-                        Normal = "NormalFloat",
-                        FloatBorder = "FloatBorder",
-                        CursorLine = "PmenuSel",
-                        PmenuMatch = "Special",
+                        Normal = "MyKaNormalFloat",
+                        FloatBorder = "MyKaFloatBorder",
+                        CursorLine = "MyKaPmenuSel",
+                        PmenuMatch = "MyKaSpecial",
                     },
                 },
             },

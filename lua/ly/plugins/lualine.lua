@@ -7,6 +7,7 @@ local M = {
     lazy = false,
     config = function()
         local lualine = require("lualine")
+        local noice =require("noice");
         lualine.setup({
             options = {
                 disable_filetypes = {
@@ -19,7 +20,11 @@ local M = {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch", "diff", "diagnostics" },
-                lualine_c = { "filename", },
+                lualine_c = { "filename",{
+                    noice.api.status.mode.get,
+                    cond = noice.api.status.mode.has,
+                    color = { fg = "#ff9e64" },
+                }},
 
                 lualine_x = { "encoding", 'fileformat', 'filetype' },
                 lualine_y = { "lsp_status" },

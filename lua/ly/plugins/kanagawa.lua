@@ -5,24 +5,27 @@ local M = {
         require("kanagawa").setup({
             transparent = true,
             overrides = function(colors)
+                ---@type ThemeColors
+                local theme = colors.theme
                 return {
-                    -- base float groups; kanagawa keeps these opaque unless you override them
-                    NormalFloat = { bg = "NONE" },
-                    FloatBorder = { bg = "NONE" },
-                    FloatTitle = { bg = "NONE" },
+                    -- Noice
+                    MyKaNormalFloat = { bg = "None", fg = theme.ui.float.fg_border},
+                    MyKaFloatBorder = { bg = "None", fg = theme.ui.float.fg_border},
+                    MyKaFloatTitle  = { bg = "None", bold = true, fg = theme.ui.float.fg},
 
                     -- telescope
-                    TelescopeTitle = { bold = true },
-                    TelescopePromptNormal = { bg = "NONE" },
-                    TelescopePromptBorder = { bg = "NONE" },
-                    TelescopeResultsNormal = { bg = "NONE" },
-                    TelescopeResultsBorder = { bg = "NONE" },
+                    TelescopeTitle         = { bold = true, fg = theme.ui.special },
+                    TelescopePromptNormal  = { bg = "NONE", fg = theme.ui.float.fg},
+                    TelescopePromptBorder  = { bg = "NONE", fg = theme.ui.float.fg},
+                    TelescopeResultsNormal = { bg = "NONE", fg = theme.ui.float.fg},
+                    TelescopeResultsBorder = { bg = "NONE", fg = theme.ui.float.fg_border},
                     TelescopePreviewNormal = { bg = "NONE" },
-                    TelescopePreviewBorder = { bg = "NONE" },
+                    TelescopePreviewBorder = { bg = "NONE", fg = theme.ui.float.fg_border},
                 }
             end,
         })
         vim.cmd("colorscheme kanagawa")
+
     end,
 }
 
