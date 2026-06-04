@@ -10,8 +10,9 @@ local M = {
             ft = "lua",
             opts = {
                 library = {
-                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                    { path = "noice.nvim",         words = { "Noice" } },
+                    { path = "${3rd}/luv/library",          words = { "vim%.uv" } },
+                    { path = "nvim-treesitter-textobjects", words = { "TSTextObjects" } },
+                    { path = "noice.nvim",                  words = { "Noice" } },
                 },
             },
         },
@@ -103,6 +104,18 @@ local M = {
             { name = 'pyright' },
             { name = 'rust_analyzer' },
         }
+
+        vim.lsp.config("*", {
+            capabilities = {
+                workspace = {
+                    fileOperations = {
+                        didRename = true,
+                        willRename = true,
+                    },
+                },
+            },
+
+        })
         for _, server in ipairs(lsps) do
             local ok, config = pcall(require, "ly.plugins.lsp_config." .. (server.module or server.name))
             config = ok and config or {}
