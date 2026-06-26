@@ -12,26 +12,26 @@ local function config()
     null_ls.setup({
         sources = {
             null_ls.builtins.formatting.prettierd.with({
-                extra_filetypes = { "html", "css", "javascript", "typescript", "svelte" },
-                cwd = helpers.cache.by_bufnr(function(params)
-                    return prettier_root(params.bufname)
-                end),
+                filetypes = { "html", "css", "javascript", "typescript", "svelte","javascriptreact", "typescriptreact", },
+                -- cwd = helpers.cache.by_bufnr(function(params)
+                --     return prettier_root(params.bufname)
+                -- end),
             }),
-            null_ls.builtins.formatting.black,
+            -- null_ls.builtins.formatting.black,
         },
 
-        on_attach = function(client, bufnr)
-            if client.supports_method("textDocument/formatting") then
-                vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    group = autogroup,
-                    buffer = bufnr,
-                    callback = function()
-                        vim.lsp.buf.format({ bufnr = bufnr })
-                    end,
-                })
-            end
-        end,
+        -- on_attach = function(client, bufnr)
+        --     if client.supports_method("textDocument/formatting") then
+        --         vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
+        --         vim.api.nvim_create_autocmd("BufWritePre", {
+        --             group = autogroup,
+        --             buffer = bufnr,
+        --             callback = function()
+        --                 vim.lsp.buf.format({ bufnr = bufnr })
+        --             end,
+        --         })
+        --     end
+        -- end,
     })
 end
 
