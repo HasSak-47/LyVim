@@ -122,15 +122,23 @@ local M = {
             config = vim.tbl_deep_extend('force', config, default)
             vim.lsp.config(server.name, config)
         end
-        vim.lsp.enable(vim.tbl_map(function(server)
-            return server.name
-        end, lsps))
+
+        -- custom language :)
+        vim.lsp.config("yaidl", vim.tbl_deep_extend("force", default, {
+            cmd = { "/home/lilith/ya/idl/target/debug/lsp" },
+            filetypes = { "yaidl" },
+        }))
 
         vim.lsp.config('gdscript', vim.tbl_deep_extend('force', default, {
             cmd = { 'nc', 'localhost', '6008' },
             filetypes = { 'gd', 'gdscript', 'gdscript3' },
             root_markers = { 'project.godot', '.git' },
         }))
+
+        vim.lsp.enable(vim.tbl_map(function(server)
+            return server.name
+        end, lsps))
+        vim.lsp.enable('yaidl')
 
         local function godot_lsp_is_running()
             local result = vim.system({ 'nc', '-z', '127.0.0.1', '6008' }, { text = true }):wait(1000)
